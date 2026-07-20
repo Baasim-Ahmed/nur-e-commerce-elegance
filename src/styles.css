@@ -59,29 +59,46 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-ivory: var(--ivory);
+  --color-soft-beige: var(--soft-beige);
+  --color-champagne: var(--champagne);
+  --color-champagne-deep: var(--champagne-deep);
+  --color-matte-black: var(--matte-black);
+  --color-warm-taupe: var(--warm-taupe);
+  --font-serif: "Cormorant Garamond", "Playfair Display", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --radius: 0.125rem;
+
+  /* NURÉ brand palette */
+  --ivory: oklch(0.976 0.008 85);            /* #FAF8F5 */
+  --soft-beige: oklch(0.942 0.016 78);       /* #F2ECE4 */
+  --champagne: oklch(0.735 0.076 78);        /* #C8A46A */
+  --champagne-deep: oklch(0.62 0.082 72);
+  --matte-black: oklch(0.205 0 0);           /* #1D1D1D */
+  --warm-taupe: oklch(0.68 0.028 55);        /* #B49785 */
+
+  --background: var(--ivory);
+  --foreground: var(--matte-black);
+  --card: var(--ivory);
+  --card-foreground: var(--matte-black);
+  --popover: var(--ivory);
+  --popover-foreground: var(--matte-black);
+  --primary: var(--matte-black);
+  --primary-foreground: var(--ivory);
+  --secondary: var(--soft-beige);
+  --secondary-foreground: var(--matte-black);
+  --muted: var(--soft-beige);
+  --muted-foreground: var(--warm-taupe);
+  --accent: var(--champagne);
+  --accent-foreground: var(--matte-black);
+  --destructive: oklch(0.55 0.19 27);
+  --destructive-foreground: var(--ivory);
+  --border: oklch(0.88 0.015 78);
+  --input: oklch(0.88 0.015 78);
+  --ring: var(--champagne);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -140,5 +157,125 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-serif {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--champagne);
+    color: var(--matte-black);
+  }
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--champagne-deep);
+}
+
+@utility hairline {
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: var(--matte-black);
+  color: var(--ivory);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid var(--matte-black);
+  transition: all 320ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  &:hover {
+    background: var(--champagne);
+    color: var(--matte-black);
+    border-color: var(--champagne);
+  }
+}
+
+@utility btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: transparent;
+  color: var(--matte-black);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid var(--champagne);
+  transition: all 320ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  &:hover {
+    background: var(--champagne);
+    color: var(--matte-black);
+  }
+}
+
+@utility underline-grow {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 1px;
+    width: 100%;
+    background: var(--champagne);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@keyframes nure-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes nure-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@utility fade-up {
+  animation: nure-fade-up 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@utility fade-in-slow {
+  animation: nure-fade-in 1400ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }

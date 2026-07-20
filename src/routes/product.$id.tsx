@@ -73,7 +73,7 @@ function PDP() {
                 </button>
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
-                {product.sizes.map((s) => (
+                {product.sizes.map((s: string) => (
                   <button
                     key={s}
                     onClick={() => setSize(s)}

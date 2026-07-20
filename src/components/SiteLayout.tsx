@@ -10,7 +10,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   const isHome = pathname === "/";
   return (
     <div className="min-h-screen bg-ivory text-matte-black">
-      <AnnouncementBar />
+      {!isHome && <AnnouncementBar />}
       <Navbar transparent={isHome} />
       <main className={isHome ? "" : "pt-24 md:pt-28"}>{children}</main>
       <Footer />
